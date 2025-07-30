@@ -27,12 +27,12 @@ function getComputerChoice(){
 // Getting human choice
 
 function getHumanChoice(){
-    console.log("Choices: rock, paper or scissors")
+    
     let choice = prompt("Please enter your choice")
     return choice
 }
-let humanScore = 0;
-let computerScore = 0;
+
+
 
 
 // Creating function playround for the single round
@@ -49,11 +49,28 @@ function playRound (humanChoice, computerChoice){
     else if (((humanChoice == 'rock') & (computerChoice == 'scissors'))
          || ((humanChoice == 'scissors') & (computerChoice == 'paper')) || 
         ((humanChoice == 'scissors') & (computerChoice == 'paper'))) {
+        humanScore = humanScore + 1
         return (`You win ${humanChoice} wins ${computerChoice}`)
     }
     else {
+        computerScore = computerScore + 1
         return (`You lost ${humanChoice} beats ${computerChoice}`)
     }
     
 }
-console.log(playRound(humanChoice = getHumanChoice, computerChoice= getComputerChoice))
+// console.log(playRound(humanChoice = getHumanChoice, computerChoice= getComputerChoice))
+// Inializing two variables humanscore and computer with 0 value
+let humanScore = 0;
+let computerScore = 0;
+
+function playGame(){
+    console.log("Choices: rock, paper or scissors")
+    let numberOfTimesToPlay = prompt("How many times you want to play the game? ");
+    for (let index = 1; index <= numberOfTimesToPlay; index++) {
+        console.log(playRound(getHumanChoice, getComputerChoice))
+
+    }
+    console.log(`humanScore ${humanScore} ---- computerScore ${computerScore}`)
+}
+
+playGame()
