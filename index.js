@@ -33,7 +33,7 @@ function playRound(humanChoice, computerChoice) {
     return `You lose! ${computerChoice} beats ${humanChoice}`};
 }
 
-const humanSelection = getHumanChoice();
+// const humanSelection = getHumanChoice();
 // const computerSelection = getComputerChoice();
 
 // console.log(playRound(humanSelection, computerSelection));
