@@ -34,17 +34,68 @@ function playRound(humanChoice, computerChoice) {
 }
 
 const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// const computerSelection = getComputerChoice();
 
 // console.log(playRound(humanSelection, computerSelection));
 
-function playGame() {
-    for (let i = 0; i < 5; i++){
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection)};
-    return `humanScore ${humanScore}, computerScore ${computerScore}`;
-};
+// function playGame() {
+//     for (let i = 0; i < 5; i++){
+//     const humanSelection = getHumanChoice();
+//     const computerSelection = getComputerChoice();
+//     playRound(humanSelection, computerSelection)};
+//     return `humanScore ${humanScore}, computerScore ${computerScore}`;
+// };
 
-console.log(playGame());
+// console.log(playGame());
+
+const btn1 = document.createElement("button");
+const btn2 = document.createElement("button");
+const btn3 = document.createElement("button");
+
+btn1.textContent = "rock";
+btn1.setAttribute("class", "rock button");
+
+btn2.textContent = "paper";
+btn2.setAttribute("class", "paper button");
+
+btn3.textContent = "scissors";
+btn3.setAttribute("class", "scissors button");
+
+document.body.appendChild(btn1);
+document.body.appendChild(btn2);
+document.body.appendChild(btn3);
+
+// document.body.setAttribute("style", "display: flex; align-items: center; justify-content: center; height: 100vh; width: 100vh;")
+
+const div = document.createElement("div");
+const runningScore = document.createElement("p");
+document.body.appendChild(runningScore);
+
+
+btn1.addEventListener("click", event => {
+    const computerSelection = getComputerChoice();
+    div.textContent += `${playRound(event.target.textContent, computerSelection)}----`;
+    runningScore.textContent += `[humanScore: ${humanScore}, computerScore: ${computerScore}]`
+});
+
+btn2.addEventListener("click", event => {
+    const computerSelection = getComputerChoice();
+    div.textContent += `${playRound(event.target.textContent, computerSelection)}----`;
+    runningScore.textContent += `[humanScore: ${humanScore}, computerScore: ${computerScore}]`
+});
+
+btn3.addEventListener("click", event => {
+    const computerSelection = getComputerChoice();
+    div.textContent += `${playRound(event.target.textContent, computerSelection)}----`;
+    runningScore.textContent += `[humanScore: ${humanScore}, computerScore: ${computerScore}]`
+
+});
+document.body.appendChild(div);
+
+
+
+
+
+
+
 
