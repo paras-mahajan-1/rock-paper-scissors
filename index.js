@@ -71,30 +71,46 @@ const div = document.createElement("div");
 const runningScore = document.createElement("p");
 document.body.appendChild(runningScore);
 
-
-btn1.addEventListener("click", event => {
+function eventFunction (event) {
     const computerSelection = getComputerChoice();
     div.textContent += `${playRound(event.target.textContent, computerSelection)}----`;
     runningScore.textContent += `[humanScore: ${humanScore}, computerScore: ${computerScore}]`
-});
+    if ((humanScore == 5)) {
+    const result = document.createElement("p");
+    document.body.appendChild(result);
+    result.textContent = "You won";
+    displayStatus("You Win")
 
-btn2.addEventListener("click", event => {
-    const computerSelection = getComputerChoice();
-    div.textContent += `${playRound(event.target.textContent, computerSelection)}----`;
-    runningScore.textContent += `[humanScore: ${humanScore}, computerScore: ${computerScore}]`
-});
+    } else if (computerScore == 5) {
+    const result = document.createElement("p");
+    document.body.appendChild(result);
+    result.textContent = "You lose";
+    displayStatus("You Lose");
+    };
+    
+}
+// creating a function which will remove all the elements and display winner or loser status;
 
-btn3.addEventListener("click", event => {
-    const computerSelection = getComputerChoice();
-    div.textContent += `${playRound(event.target.textContent, computerSelection)}----`;
-    runningScore.textContent += `[humanScore: ${humanScore}, computerScore: ${computerScore}]`
+function displayStatus(status) {
+    let nodesValue = document.querySelectorAll("button,div,p");
+    let len = nodesValue.length;
+    for (let i = 0; i < len; i++) {
+        nodesValue[i].remove();
 
-});
+    }
+    const div2 = document.createElement("div");
+    document.body.appendChild(div2);
+    div2.setAttribute("id", "status");
+    div2.textContent = status;
+}
+
+btn1.addEventListener("click", eventFunction);
+
+btn2.addEventListener("click", eventFunction);
+
+btn3.addEventListener("click", eventFunction);
+
 document.body.appendChild(div);
-
-
-
-
 
 
 
